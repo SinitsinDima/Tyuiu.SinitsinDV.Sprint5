@@ -20,14 +20,21 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task1.V18.Lib
             string strY;
             for (int x = startValue; x <= stopValue; x++)
             {
-                y = 3 * x + 2 - ((2 * x - x) / (Math.Cos(x) + 1));
+
+                if (x == 0)
+                {
+                    y = 0;
+                }
+
+
+                y = Math.Round(3 * x + 2 - ((2 * x - x) / (Math.Cos(x) + 1)), 2);
                 strY = Convert.ToString(y);
 
                 if (x == 0)
                 {
                    y = 0;
                 }
-                y = Math.Round(y, 2);
+                
 
                 if (x != stopValue)
                 {

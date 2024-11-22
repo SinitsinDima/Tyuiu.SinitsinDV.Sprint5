@@ -33,31 +33,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task1.V18
             Console.WriteLine("*****************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                        *");
             Console.WriteLine("*****************************************************");
-            string path = $@"{Path.GetTempPath()}OutPutFileTask1.txt";
-            double y;
-            string strY;
-            for (int x = startValue; x <= stopValue; x++)
-            {
-                y = 3 * x + 2 - ((2 * x - x) / (Math.Cos(x) + 1));
-                strY = Convert.ToString(y);
-
-                if (x == 0)
-                {
-                    y = 0;
-                }
-                y = Math.Round(y, 2);
-                Console.WriteLine($"{y}\n");
-
-                if (x != stopValue)
-                {
-                    File.AppendAllText(path, strY + Environment.NewLine);
-                }
-                else
-                {
-                    File.AppendAllText(path, strY);
-                }
-            }
-                string res = ds.SaveToFileTextData(startValue, stopValue);
+            string res = ds.SaveToFileTextData(startValue, stopValue);
 
             Console.WriteLine("Файл " + res);
             Console.WriteLine("Создан!");
