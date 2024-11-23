@@ -15,7 +15,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task3.V1.Lib
 
             using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.OpenOrCreate), Encoding.UTF8))
             {
-                writer.Write(BitConverter.GetBytes(x));
+                writer.Write(BitConverter.GetBytes(y));
             }
             return path;
         }
