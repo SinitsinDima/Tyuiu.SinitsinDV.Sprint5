@@ -9,7 +9,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task3.V1.Lib
         {
             string path = $@"{Path.GetTempPath()}OutPutFileTask3.bin";
 
-            double y = (Math.Pow(x, 3) - 8) / (2 * Math.Pow(x, 2));
+            double y = (Math.Pow(x, 3) - 8d) / (2d * Math.Pow(x, 2));
 
             y = Math.Round(y, 3);
 
