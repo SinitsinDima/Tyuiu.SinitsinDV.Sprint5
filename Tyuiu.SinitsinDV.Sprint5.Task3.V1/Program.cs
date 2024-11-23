@@ -7,7 +7,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task3.V1
     {
         static void Main(string[] args)
         {
-            int x = 2;
+            int x = 3;
 
             DataService ds = new DataService();
 
