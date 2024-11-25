@@ -8,30 +8,31 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task5.V12.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            // Считываем весь текст файла и разделяем по пробелам
-            string fileContent = File.ReadAllText(path).Replace('.', ','); // Локализуем числа для текущей культуры
-            string[] numbers = fileContent.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            // Читаем строки из файла построчно
+            string[] lines = File.ReadAllLines(path);
 
-            double plus = 0;  // Сумма положительных чисел
-            double minus = 0; // Сумма отрицательных чисел
+            double positiveSum = 0;
+            double negativeSum = 0;
 
-            foreach (string number in numbers)
+            foreach (string line in lines)
             {
-                // Преобразуем строку в double
-                double value = Convert.ToDouble(number, CultureInfo.InvariantCulture);
-
-                if (value > 0)
+                // Преобразуем каждую строку в число
+                if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double number))
                 {
-                    plus += value; // Суммируем положительные числа
+                    if (number > 0)
+                        positiveSum += number;
+                    else
+                        negativeSum += number;
                 }
                 else
                 {
-                    minus += value; // Суммируем отрицательные числа
+                    // Обработка ошибок, если строка не число
+                    throw new FormatException($"Строка '{line}' имеет неверный формат.");
                 }
             }
 
-            double res = Math.Round(plus - minus, 3); // Вычисляем разницу с округлением до 3 знаков
-            return res;
+            // Возвращаем разницу между суммой положительных и отрицательных чисел
+            return Math.Round(positiveSum - negativeSum, 3);
         }
     }
 }
