@@ -8,9 +8,8 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task5.V12.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            string paths = File.ReadAllText(path).Replace('.', ',');
             
-            string[] lines = File.ReadAllLines(paths);
+            string[] lines = File.ReadAllLines(path);
 
             double positiveSum = 0;
             double negativeSum = 0;
