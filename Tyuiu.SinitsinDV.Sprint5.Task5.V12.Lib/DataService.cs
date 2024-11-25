@@ -8,15 +8,16 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task5.V12.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            // Читаем строки из файла построчно
-            string[] lines = File.ReadAllLines(path);
+            string paths = File.ReadAllText(path).Replace('.', ',');
+            
+            string[] lines = File.ReadAllLines(paths);
 
             double positiveSum = 0;
             double negativeSum = 0;
 
             foreach (string line in lines)
             {
-                // Преобразуем каждую строку в число
+                
                 if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double number))
                 {
                     if (number > 0)
@@ -24,14 +25,8 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task5.V12.Lib
                     else
                         negativeSum += number;
                 }
-                else
-                {
-                    // Обработка ошибок, если строка не число
-                    throw new FormatException($"Строка '{line}' имеет неверный формат.");
-                }
+                
             }
-
-            // Возвращаем разницу между суммой положительных и отрицательных чисел
             return Math.Round(positiveSum - negativeSum, 3);
         }
     }
