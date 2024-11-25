@@ -26,7 +26,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task5.V12.Lib
                 }
                 
             }
-            return Math.Round(positiveSum - negativeSum, 3);
+            return Math.Round(positiveSum + negativeSum, 3);
         }
     }
 }
