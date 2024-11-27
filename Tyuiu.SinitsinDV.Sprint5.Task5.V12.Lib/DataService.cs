@@ -19,10 +19,15 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task5.V12.Lib
                 
                 if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double number))
                 {
-                    if (number > 0)
-                        positiveSum += number;
-                    else
-                        negativeSum += number;
+                    if (number % 1 == 0)
+                    {
+                        if (number > 0)
+                            positiveSum += number;
+                        else
+                            negativeSum += number;
+
+                    }
+                   
                 }
                 
             }
