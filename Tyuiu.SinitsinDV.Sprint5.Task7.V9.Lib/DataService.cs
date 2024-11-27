@@ -10,7 +10,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task7.V9.Lib
 
             string[] fullpath = { @"c:\DataSprint5", "OutPutDataFileTask7V9.txt" };
             string fullSaveFile = Path.Combine(fullpath);
-
+            FileInfo fileInfo = new FileInfo(fullSaveFile);
 
             if (File.Exists(fullSaveFile))
             {
