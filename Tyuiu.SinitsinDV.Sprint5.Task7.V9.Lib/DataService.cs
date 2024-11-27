@@ -8,12 +8,8 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task7.V9.Lib
         public string LoadDataAndSave(string path)
         {
 
-            string directoryPath = @"C:\DataSprint5"; 
+            string directoryPath = @"C:\DataSprint5";
             string fileName = "OutPutDataFileTask7V9.txt";
-
-            
-
-            
             string pathSaveFile = Path.Combine(directoryPath, fileName);
 
             
