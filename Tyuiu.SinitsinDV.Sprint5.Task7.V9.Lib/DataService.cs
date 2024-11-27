@@ -7,43 +7,42 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task7.V9.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string[] paths = { @"c:\DataSprint5", "OutPutDataFileTask7V9.txt" };
-            string pathSaveFile = Path.Combine(paths);
-            FileInfo fileInfo = new FileInfo(pathSaveFile);
-            bool fileExist = fileInfo.Exists;
 
-            if(fileExist)
+            string directoryPath = @"C:\DataSprint5"; 
+            string fileName = "OutPutDataFileTask7V9.txt";
+
+            
+
+            
+            string pathSaveFile = Path.Combine(directoryPath, fileName);
+
+            
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            
+            if (File.Exists(pathSaveFile))
             {
                 File.Delete(pathSaveFile);
             }
 
+            
             using (StreamReader reader = new StreamReader(path))
             {
-
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     
-                    
-                    
-                        
-                        string processedLine = Regex.Replace(line, "[A-Z]", string.Empty);
-
-
-                        File.AppendAllText(pathSaveFile, processedLine + "\n");
-
+                    string processedLine = Regex.Replace(line, "[A-Z]", string.Empty);
 
                     
-                    
-
-                   
-                    
+                    File.AppendAllText(pathSaveFile, processedLine + "\n");
                 }
-                
-
-
             }
 
+            
             return pathSaveFile;
 
 
