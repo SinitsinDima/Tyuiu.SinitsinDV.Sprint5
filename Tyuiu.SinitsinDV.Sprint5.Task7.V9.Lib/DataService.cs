@@ -7,7 +7,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task7.V9.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string[] paths = { @"c:\DataSprint5", "OutPutDataFileTask7V9" };
+            string[] paths = { @"c:\DataSprint5", "OutPutDataFileTask7V9.txt" };
             string pathSaveFile = Path.Combine(paths);
             FileInfo fileInfo = new FileInfo(pathSaveFile);
             bool fileExist = fileInfo.Exists;
