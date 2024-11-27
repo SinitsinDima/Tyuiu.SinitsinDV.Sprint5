@@ -10,7 +10,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task7.V9.Lib
 
 
             string tempDir = Path.GetTempPath();  // Получаем путь к временной папке
-            string fullSaveFile = Path.Combine(tempDir, "OutPutDataFileTask7V9.txt");  // Генерируем путь к файлу в временной папке
+            string fullSaveFile = Path.Combine(tempDir, @"C:\DataSprint5", "OutPutDataFileTask7V9.txt");  // Генерируем путь к файлу в временной папке
             FileInfo fileInfo = new FileInfo(fullSaveFile);
 
             if (fileInfo.Exists)
