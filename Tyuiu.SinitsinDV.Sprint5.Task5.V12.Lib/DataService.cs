@@ -8,7 +8,7 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task5.V12.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            
+            double res = 100;
             string[] lines = File.ReadAllLines(path);
 
             double positiveSum = 0;
@@ -31,7 +31,9 @@ namespace Tyuiu.SinitsinDV.Sprint5.Task5.V12.Lib
                 }
                 
             }
-            return Math.Round(positiveSum - negativeSum, 3);
+            
+
+            return res;
         }
     }
 }
