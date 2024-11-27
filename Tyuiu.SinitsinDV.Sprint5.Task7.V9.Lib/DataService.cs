@@ -1,47 +1,38 @@
 ﻿using tyuiu.cources.programming.interfaces.Sprint5;
 using System.IO;
 using System.Text.RegularExpressions;
+
 namespace Tyuiu.SinitsinDV.Sprint5.Task7.V9.Lib
 {
     public class DataService : ISprint5Task7V9
     {
         public string LoadDataAndSave(string path)
         {
+            // Путь для сохранения выходного файла
+            string[] fullpath = { @"c:\DataSprint5", "OutPutDataFileTask7V9.txt" };
+            string fullSaveFile = Path.Combine(fullpath);
 
-            string directoryPath = @"C:\DataSprint5";
-            string fileName = "OutPutDataFileTask7V9.txt";
-            string pathSaveFile = Path.Combine(directoryPath, fileName);
-
-            
-            if (!Directory.Exists(directoryPath))
+            // Удаляем выходной файл, если он существует
+            if (File.Exists(fullSaveFile))
             {
-                Directory.CreateDirectory(directoryPath);
+                File.Delete(fullSaveFile);
             }
 
-            
-            if (File.Exists(pathSaveFile))
-            {
-                File.Delete(pathSaveFile);
-            }
-
-            
+            // Читаем строки и обрабатываем их
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    
+                    // Удаляем заглавные латинские буквы
                     string processedLine = Regex.Replace(line, "[A-Z]", string.Empty);
 
-                    
-                    File.AppendAllText(pathSaveFile, processedLine + "\n");
+                    // Записываем обработанную строку в выходной файл
+                    File.AppendAllText(fullSaveFile, processedLine + Environment.NewLine);
                 }
             }
 
-            
-            return pathSaveFile;
-
-
+            return fullSaveFile;
         }
     }
 }
